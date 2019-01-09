@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootswatch/dist/lux/bootstrap.css'
+import 'bootswatch/dist/solar/bootstrap.css'
+// remoce all node moduls and then yarn 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
