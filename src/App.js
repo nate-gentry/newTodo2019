@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Form } from './components/Form';
+import  Form  from './components/Form';
 
 class App extends Component {
   constructor(){
@@ -90,14 +90,12 @@ allDone(){
         </header>
         <br/>
         <main className="container"> 
-        <form onSubmit={(event) => this.formSubmited(event)}>
-        {/* ⬇️⬇️⬇️defernt version of bind function ⬆️⬆️⬆️ but we need update and state  */}
-        {/*  ✅   <form onSubmit={this.formSubmited.bind(this)}>  */}
-          <label>New Todo</label>
-            <input id="newTodo" onChange={(event) =>this.ChangeEvent(event)} className="form-control" name="newTodo" value={this.state.newTodo}/>
-            <button type="submit" className="btn btn-primary">Create Todo</button>
-          </form>
-         {/* <Form /> */}
+         <Form  
+        //  each function from component shoud be pass from parent to child with props ⬇️    
+        // and then we need bind THIS  
+         newTodo={this.state.newTodo}
+          formSubmited={this.formSubmited.bind(this)} 
+          ChangeEvent={this.ChangeEvent.bind(this)} />
           {/*  when we want to show all list you shoud create some li with will be arr and then we nee map it and retern value depens of our obj */}
          <ul>
            {this.state.todos.map((todo, index) => {

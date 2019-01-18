@@ -1,23 +1,17 @@
- import React, { Component } from 'react'
+ import React  from 'react'
 
-export class Form extends Component {
-  render() {
+const Form  = (props) => {
     return (
-
-        <form>
-         <fieldset>
-            <legend>Todo</legend>
-              <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com"/>
-                </div>
-              </div>
-          </fieldset>
+      <form onSubmit={props.formSubmited}>
+      {/* ⬇️⬇️⬇️defernt version of bind function ⬆️⬆️⬆️ but we need update and state  */}
+      {/*  ✅   <form onSubmit={this.formSubmited.bind(this)}>  */}
+        <label>New Todo</label>
+          <input id="newTodo" onChange={props.ChangeEvent} className="form-control" name="newTodo" value={props.newTodo}/>
+          {/* When we crette new component all this.state shoud be a props  */}
+          <button type="submit" className="btn btn-primary">Create Todo</button>
         </form>
-     
     )
   }
-}
+
 
 export default Form
