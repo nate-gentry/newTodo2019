@@ -22,10 +22,10 @@ class App extends Component {
         done: false 
       },
     ]
-    }
     // this.formSubmited = this.formSubmited.bind(this)  // if we do wiout fat error => 
   }
-
+  }
+  
   ChangeEvent(event){
     console.log(event.target.value);
     this.setState({
@@ -34,14 +34,14 @@ class App extends Component {
     // when you grab some stuff  from input you shoud bind or fat arror (=>)
   }
 
-formSubmited(event){
-  event.preventDefault()// we need this to not refres the page
-  //   when we have this we shoud bind function  
+formSubmitted(event){
+  event.preventDefault()// we need this to not refresh the page
+  //   when we have this we should bind function  
   console.log(this.state.newTodo)
 
   this.setState({
-    // when you dont want just push to arr you shoud use a sper operator ... "[...this.state.todos]" and then you need { title   and done will be false }
-    //  if we want to clear the input we shoud add newTod : "" to our setState and we need update value in our input to this.state.Newtodo 
+    // when you don't want just push to arr you should use a speard operator ... "[...this.state.todos]" and then you need { title   and done will be false }
+    //  if we want to clear the input we should add newTod : "" to our setState and we need update value in our input to this.state.Newtodo 
     newTodo : '',
     todos : [...this.state.todos, {
       title : this.state.newTodo,
@@ -50,11 +50,11 @@ formSubmited(event){
   })
 }
 
-togleDone(event, index){
-  // we do copy becouse we dont want to mutet the arr 
+toggleDone(event, index){
+  // we do copy because we don't want to mutet the arr 
   const todos = [...this.state.todos]// copy the  arr
   todos[index] = {...todos[index]} // copy the todo
-  todos[index].done = event.target.checked  // updaye doen property
+  todos[index].done = event.target.checked  // update our property
   this.setState({
     todos
   })
@@ -91,12 +91,12 @@ allDone(){
         <br/>
         <main className="container"> 
          <Form  
-        //  each function from component shoud be pass from parent to child with props ⬇️    
+        //  each function from component should be pass from parent to child with props ⬇️    
         // and then we need bind THIS  
          newTodo={this.state.newTodo}
-          formSubmited={this.formSubmited.bind(this)} 
+          formSubmitted={this.formSubmitted.bind(this)} 
           ChangeEvent={this.ChangeEvent.bind(this)} />
-          {/*  when we want to show all list you shoud create some li with will be arr and then we nee map it and retern value depens of our obj */}
+          {/*  when we want to show all list you should create some li with will be arr and then we nee map it and return value depends of our obj */}
          <ul>
            {this.state.todos.map((todo, index) => {
               return (<li key={todo.title}> 
@@ -113,5 +113,5 @@ allDone(){
   }
 }
 
-export default App;
+export default App
 
